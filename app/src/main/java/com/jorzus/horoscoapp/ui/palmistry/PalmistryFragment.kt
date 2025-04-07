@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.jorzus.horoscoapp.databinding.FragmentPalmistryBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+//recibir cosas inyectadas
+@AndroidEntryPoint
 class PalmistryFragment : Fragment() {
 
 

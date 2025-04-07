@@ -6,7 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.jorzus.horoscoapp.databinding.FragmentLuckBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+
+//recibir cosas inyectadas
+@AndroidEntryPoint
 class LuckFragment : Fragment() {
 
     private var _binding: FragmentLuckBinding? = null

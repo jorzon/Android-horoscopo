@@ -1,6 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+
+
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -40,6 +45,10 @@ android {
         enable = true
     }
 
+    kotlin{
+        jvmToolchain(8)
+    }
+
 }
 
 dependencies {
@@ -49,6 +58,12 @@ dependencies {
     //NavComponents --> deben tener la misma version
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+
+
+
+    //DAGGER HILT --> INYECTOR DE DEPENDENCIAS
+    implementation("com.google.dagger:hilt-android:2.48") //crea clase por detras
+    kapt("com.google.dagger:hilt-compiler:2.48") //permite autogenerar codigo
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

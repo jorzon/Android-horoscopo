@@ -11,7 +11,11 @@
         android:id="@+id/horoscopoFragment"
         android:name="com.jorzus.horoscoapp.ui.horosco.HoroscopoFragment"
         android:label="fragment_horoscopo"
-        tools:layout="@layout/fragment_horoscopo" />
+        tools:layout="@layout/fragment_horoscopo" >
+        <action
+            android:id="@+id/action_horoscopoFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
     <fragment
         android:id="@+id/luckFragment"
         android:name="com.jorzus.horoscoapp.ui.luck.LuckFragment"
@@ -22,4 +26,13 @@
         android:name="com.jorzus.horoscoapp.ui.palmistry.PalmistryFragment"
         android:label="fragment_palmistry"
         tools:layout="@layout/fragment_palmistry" />
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="com.jorzus.horoscoapp.ui.detail.DetailActivity"
+        android:label="activity_detail"
+        tools:layout="@layout/activity_detail" >
+        <argument
+            android:name="type"
+            app:argType="com.jorzus.horoscoapp.domain.model.HoroscopoModel" />
+    </activity>
 </navigation>
