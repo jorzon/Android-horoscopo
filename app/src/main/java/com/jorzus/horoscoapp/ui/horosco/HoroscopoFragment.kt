@@ -55,7 +55,6 @@ class HoroscopoFragment : Fragment() {
 
     private fun initList() {
         adapterH = HoroscpoAdapter() { item -> navigateToDetail(item)}
-
         binding.rvHoroscpo.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = adapterH

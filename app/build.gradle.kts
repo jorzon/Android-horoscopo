@@ -3,10 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
-
-
     id("androidx.navigation.safeargs.kotlin")
 }
+
 
 android {
 
@@ -25,13 +24,27 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String" , "BASE_URL" ,"\"https://newastro.vercel.app/\"")
+
+            resValue("string" , "jorzus" , "HoroscoApp")
         }
+
+
+        getByName("debug"){
+            isDebuggable = true
+            resValue("string" , "jorzus" , "[DEBUG]-HoroscoApp")
+            buildConfigField("String" , "BASE_URL" ,"\"https://newastro-debug.vercel.app/\"")
+        }
+
+
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -41,8 +54,9 @@ android {
         jvmTarget = "1.8"
     }
 
-    viewBinding {
-        enable = true
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
     }
 
     kotlin{
@@ -64,6 +78,20 @@ dependencies {
     //DAGGER HILT --> INYECTOR DE DEPENDENCIAS
     implementation("com.google.dagger:hilt-android:2.48") //crea clase por detras
     kapt("com.google.dagger:hilt-compiler:2.48") //permite autogenerar codigo
+
+
+
+    //retrofit para el consumo de apis y converter-gson para transformar mi data en un json
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+
+
+    //loggin interceptor -->
+    implementation("com.squareup.okhttp3:logging-interceptor:4.3.1")
+
+
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

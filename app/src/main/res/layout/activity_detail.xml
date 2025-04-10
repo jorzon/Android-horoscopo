@@ -9,7 +9,6 @@
     tools:context=".ui.detail.DetailActivity">
 
 
-
     <ImageView
         android:id="@+id/imgDetail"
         android:layout_width="0dp"
@@ -22,12 +21,12 @@
     <ImageView
         android:id="@+id/imgBack"
         android:layout_width="wrap_content"
-        android:src="@drawable/ic_back"
-        android:tint="@color/secondary"
+        android:layout_height="wrap_content"
         android:padding="24dp"
+        android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_height="wrap_content" />
+        app:tint="@color/secondary" />
 
     <TextView
         android:id="@+id/titleDetail"
@@ -53,9 +52,11 @@
 
 
     <ProgressBar
+        android:id="@+id/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/gold"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleDetail" />
